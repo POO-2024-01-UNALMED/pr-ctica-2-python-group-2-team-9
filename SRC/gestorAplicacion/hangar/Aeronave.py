@@ -1,74 +1,75 @@
+# AUTORES: RICARDO FUENTES, VALERY FERNANDEZ, JUAN LUIS SUCERQUIA, MARIANA SANCHEZ, JOSE FORERO
 class Aeronave:
-    # ATRIBUTOS
-    GASTO_GASOLINA = 120
 
+    # CONSTRUCTOR
     def __init__(self, nombre, aerolinea):
-        self._nombre = nombre
-        self._aerolinea = aerolinea
+        self.Gasto_gasolina = 120
         self._descompuesto = False
         self._SILLAS_ECONOMICAS = []
         self._SILLAS_EJECUTIVAS = []
-
-    # GETTERS Y SETTERS
-    def get_aerolinea(self):
-        return self._aerolinea
-
-    def set_aerolinea(self, aerolinea):
+        self._nombre = nombre
         self._aerolinea = aerolinea
 
-    def get_sillas_economicas(self):
+    # GET AND SET
+    def getAerolinea(self):
+        return self._aerolinea
+
+    def setAerolinea(self, aerolinea):
+        self._aerolinea = aerolinea
+
+    def getSILLASECONOMICAS(self):
         return self._SILLAS_ECONOMICAS
 
-    def set_sillas_economicas(self, sillas_economicas):
-        self._SILLAS_ECONOMICAS = sillas_economicas
+    def setSILLASECONOMICAS(self, sILLAS_ECONOMICAS):
+        self._SILLAS_ECONOMICAS = sILLAS_ECONOMICAS
 
-    def get_sillas_ejecutivas(self):
+    def getSILLASEJECUTIVAS(self):
         return self._SILLAS_EJECUTIVAS
 
-    def set_sillas_ejecutivas(self, sillas_ejecutivas):
-        self._SILLAS_EJECUTIVAS = sillas_ejecutivas
+    def setSILLASEJECUTIVAS(self, sILLAS_EJECUTIVAS):
+        self._SILLAS_EJECUTIVAS = sILLAS_EJECUTIVAS
 
-    def get_gasto_gasolina(self):
-        return self.GASTO_GASOLINA
+    def getGastoGasolina(self):
+        return self.Gasto_gasolina
 
-    def get_nombre(self):
+    def getNombre(self):
         return self._nombre
 
-    def set_nombre(self, nombre):
+    def setNombre(self, nombre):
         self._nombre = nombre
 
-    def is_descompuesto(self):
+    # METODOS
+
+    def isDescompuesto(self):
         return self._descompuesto
 
-    def set_descompuesto(self, descompuesto):
+    def setDescompuesto(self, descompuesto):
         self._descompuesto = descompuesto
 
     def __str__(self):
         return self._nombre
 
-    # MÉTODOS
-    def buscar_silla_por_ubicacion_y_tipo(self, ubicacion, tipo):
-        if tipo.lower() == "economica":
-            for silla in self._SILLAS_ECONOMICAS:
-                if silla.is_estado() and silla.get_ubicacion() == ubicacion:
-                    return silla
-        elif tipo.lower() == "ejecutiva":
-            for silla in self._SILLAS_EJECUTIVAS:
-                if silla.is_estado() and silla.get_ubicacion() == ubicacion:
-                    return silla
+    # BUSCAR SILLAS POR UBICACION Y TIPO
+    # EN ESTE METODO SE RECIBE UNA UBICACION(UBICACION) Y UN TIPO(STRING), LOS CUALES UTILIZA PARA BUSCAR DENTRO DE
+    # LAS LISTAS DE LA AERONAVE QUE LO LLAMA UNA SILLA CON LA UBICACION Y TIPO QUE SE INGRESAN.
+    def buscarSillaPorUbicacionyTipo(self, ubicacion, tipo):
+
+        if tipo.lower() == "ECONOMICA".lower():
+            for i in self._SILLAS_ECONOMICAS:
+                if i.isEstado() and i.getUbicacion() == ubicacion:
+                    return i
+        elif tipo.lower() == "EJECUTIVA".lower():
+            for i in self._SILLAS_EJECUTIVAS:
+                if i.isEstado() and i.getUbicacion() == ubicacion:
+                    return i
         return None
+    # ESTE METODO RECORRE LOS ARREGLOS DE SILLAS EJECUTIVOS Y ECONOMICAS DE CADA AVION Y AVIONETA 
+    # PARA VERIFICAR LA CANTIDAD DE SILLAS QUE ESTAN OCUPADAS Y RETORNAR DICHA CANTIDAD
+    
+    def Calcular_Sillas_Ocupadas(self):
+        pass
 
-    def calcular_sillas_ocupadas(self):
-        cont = 0
-        for silla in self._SILLAS_ECONOMICAS:
-            if silla.is_estado():
-                cont += 1
-        for silla in self._SILLAS_EJECUTIVAS:
-            if silla.is_estado():
-                cont += 1
-        return f"Esta es la cantidad de sillas ocupadas: {cont}"
-
-    # MÉTODO ABSTRACTO
-    def calcular_consumo_gasolina(self, distancia_en_km):
-        {}
-
+    # ESTE METODO RECIBE UN TIPO DE DATO DOUBLE DE LA DISTANCIA QUE HAY DESDE EL LUGAR DE ORIGEN AL LUGAR DE DESTINO
+    # Y RETONARNA EL COSTO TOTAL DE GASOLINA PARA RECORRER EL TRAYECTO
+    def Calcular_Consumo_Gasolina(self, distancia_en_km):
+        pass
