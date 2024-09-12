@@ -9,4 +9,4 @@ class Alojamiento():
         self._alojamientos = []
 
     def calcularPrecio(self, dias):
-        return dias * (this._precioDia)
+        return dias * (self._precioDia)
