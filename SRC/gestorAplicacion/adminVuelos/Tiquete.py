@@ -31,7 +31,7 @@ class Tiquete:
 	#SU OBJETIVO ES ASIGNARLE EL PRECIO A CADA INSTANCIA DE TIQUETE OBTENIENDO LOS PRECIOS
 	#DEL VUELO Y SILLA SELECCIONADOS CON UN DESCUENTO POR CONFORME AL ATRIBUTO EDAD DEL PASAJERO
     def asignar_precio():
-        precio_total = Vuelo.get_precio() + self.get_silla().get_clase().get_precio()
+        precio_total = _vuelo.get_precio() + self.get_silla().getClase().get_precio()
         if (pasajero.get_edad()<5):
             hayDescuento = True
             self._precio = (precio_total - (precio_total*0.25))
