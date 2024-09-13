@@ -14,7 +14,7 @@ class Alojamiento():
 
     #EL METODO RECIBE UN PARAMETRO DIAS (int) Y RETORNA EL PRECIO RESULTANTE AL MULTIPLICAR EL PRECIO POR DIA DEL ALOJAMIENTO
     #CON EL PARAMETRO DIAS QUE SE LE PASO.
-    def calcularPrecio(self, dias):
+    def calcular_precio(self, dias):
         return dias * (self._precioDia)
 
 #BUSCAR ALOJAMIENTOS POR ...
@@ -22,10 +22,10 @@ class Alojamiento():
     #METODO DE CLASE QUE RECIBE UNA UBICACION(String) Y BUSCA ENTRE LOS ALOJAMIENTOS DISPONIBLES SI HAY ALGUNO EN ESTA LOCACION, 
     #SI ES ASI, RETORNA ESE OBJETO ALOJAMIENTO, SI NO, DEVUELVE NULL.
     @classmethod
-    def buscarAlojamientoPorUbicación(cls, ubicacion):
+    def buscar_alojamiento_por_ubicación(cls, ubicacion):
       alojamientosEnUbicacion = []
       for i in range(len(cls.alojamientos)):
-        if cls.alojamientos[i].getLocacion().lower() == ubicacion.lower():
+        if cls.alojamientos[i].get_locacion().lower() == ubicacion.lower():
           alojamientosEnUbicacion.append(cls.alojamientos[i])
 
       return alojamientosEnUbicacion
@@ -33,34 +33,40 @@ class Alojamiento():
     #METODO DE CLASE QUE RECIBE UNA NOMBRE(String) Y BUSCA ENTRE LAS ALOJAMIENTOS DISPONIBLES SI HAY ALGUNO CON ESTE NOMBRE, 
     #SI ES ASI, RETORNA ESE OBJETO ALOJAMIENTO, SI NO, DEVUELVE NULL.
     @classmethod
-    def buscarAlojamientoPorNombre(cls, nombre):
+    def buscar_alojamiento_por_nombre(cls, nombre):
         for i in range(len(cls.alojamientos)):
-          if cls.alojamientos[i].getNombre().lower() == nombre.lower():
+          if cls.alojamientos[i].get_nombre().lower() == nombre.lower():
             return cls.alojamientos[i]
          
         return None
     
     #SETTER Y GETTER
-    def setLocacion(self, locacion):
+    def set_nombre(self, nombre):
+        self._nombre = nombre
+    
+    def get_nombre(self):
+        return self._nombre
+
+    def set_locacion(self, locacion):
         self._locacion = locacion
 
-    def getLocacion(self):
+    def get_locacion(self):
         return self._locacion
 
-    def setPrecio_dias(self, precio_dias):
+    def set_precio_dias(self, precio_dias):
         self._precioDia = precio_dias
 
-    def getPrecio_dia(self):
+    def get_precio_dia(self):
         return self._precioDia
 
-    def setAlojamientos(self, alojamientos):
+    def set_alojamientos(self, alojamientos):
         Alojamiento.alojamientos = alojamientos
 
-    def getAlojamientos(self):
+    def get_alojamientos(self):
         return self.alojamientos
 
-    def setEstrellas(self, estrellas):
+    def set_estrellas(self, estrellas):
         self._estrellas = estrellas
 
-    def getEstrellas(self):
+    def get_estrellas(self):
         return self._estrellas
