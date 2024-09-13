@@ -1,82 +1,94 @@
-class Vuelo:
-    def __init__(self, ID, precio, origen, destino, aeronave, distancia_en_km, fecha_de_salida, hora_de_salida):
-        self.ID = ID
-        self.precio = precio
-        self.origen = origen
-        self.destino = destino
-        self.aeronave = aeronave
-        self.distancia_en_km = distancia_en_km
-        self.fecha_de_salida = fecha_de_salida
-        self.hora_de_salida = hora_de_salida
-        self.esta_completo = False
-        self.tiquetes = []  # Lista de tiquetes
-    
-        self.aeronave.get_aerolinea().agregar_vuelo(self)
+from gestorAplicacion.hangar import *
+from gestorAplicacion.adminVuelos.Tiquete import Tiquete
 
-    def buscar_tiquete_por_id(self, tiquetes, ID):
-        for tiquete in tiquetes:
-            if tiquete.get_id() == ID:
-                return tiquete
+# CONTIENE LA INFORMACION PERTINENTE DE UN VUELO, ADEMAS DE LA LISTA DE TIQUETES QUE FUERON ASOCIADOS AL MISMO.
+class Vuelo():
+
+    # ATRIBUTOS
+
+    #CONSTRUCTOR
+    def __init__(self, iD, precio, origen, destino, aeronave, distancia, fecha_de_salida, hora_de_salida):
+        self._ID = iD
+        self._precio = precio
+        self._origen = origen
+        self._destino = destino
+        self._aeronave = aeronave
+        self._distancia_en_km = distancia
+        self._fecha_de_salida = fecha_de_salida
+        self.setHora_de_salida(hora_de_salida)
+        self.getAeronave().getAerolinea().agregarVuelo(self)
+        self._tiquetes = []
+        self._estaCompleto = False
+
+    # RECIBE UNA LISTA DE TIQUETES (ARRAYLIST<TIQUETE>) Y UN ID DE UN TIQUETE (INT), Y SE ENCARGA DE RECORRER ESA LISTA DE TIQUETES.
+    # SI ENCUENTRA UNO QUE TENGA EL MISMO ID QUE EL PASADO COMO PAR METRO, LO RETORNA. SI NO ENCUENTRA NINGUNO RETORNA NULL.
+    def buscarTiquetePorID(self, tiquetes, ID):
+        i = 0
+        while i < len(tiquetes):
+            if tiquetes[i].getId() == ID:
+                return tiquetes[i]
+            i += 1
         return None
 
-    # Getters y Setters
-    def get_ID(self):
-        return self.ID
 
-    def set_ID(self, ID):
-        self.ID = ID
+    #GETTERS Y SETTERS
+    def getID(self):
+        return self._ID
 
-    def get_precio(self):
-        return self.precio
+    def setID(self, iD):
+        self._ID = iD
 
-    def set_precio(self, precio):
-        self.precio = precio
+    def getPrecio(self):
+        return self._precio
 
-    def get_origen(self):
-        return self.origen
+    def setPrecio(self, precio):
+        self._precio = precio
 
-    def set_origen(self, origen):
-        self.origen = origen
+    def getOrigen(self):
+        return self._origen
 
-    def get_destino(self):
-        return self.destino
+    def setOrigen(self, origen):
+        self._origen = origen
 
-    def set_destino(self, destino):
-        self.destino = destino
+    def getDestino(self):
+        return self._destino
 
-    def get_aeronave(self):
-        return self.aeronave
+    def setDestino(self, destino):
+        self._destino = destino
 
-    def set_aeronave(self, aeronave):
-        self.aeronave = aeronave
+    #CORREGIR CUANDO SE TENGA LA CLASE ABSTRACTA
+    def getAeronave(self):
+        return self._aeronave
 
-    def get_distancia_en_km(self):
-        return self.distancia_en_km
+    def setAeronave(self, aeronave):
+        self._aeronave = aeronave
 
-    def set_distancia_en_km(self, distancia_en_km):
-        self.distancia_en_km = distancia_en_km
+    def getDistancia_en_km(self):
+        return self._distancia_en_km
 
+    def setDistancia_en_km(self, distancia_en_km):
+        self._distancia_en_km = distancia_en_km
 
-    def get_fecha_de_salida(self):
-        return self.fecha_de_salida
+    def getFecha_de_salida(self):
+        return self._fecha_de_salida
 
-    def set_fecha_de_salida(self, fecha_de_salida):
-        self.fecha_de_salida = fecha_de_salida
+    def setFecha_de_salida(self, fecha_de_salida):
+        self._fecha_de_salida = fecha_de_salida
 
-    def get_tiquetes(self):
-        return self.tiquetes
+    def getTiquetes(self):
+        return self._tiquetes
 
-    def set_tiquetes(self, tiquetes):
-        self.tiquetes = tiquetes
+    def setTiquetes(self, tiquetes):
+        self._tiquetes = tiquetes
 
-    def get_hora_de_salida(self):
-        return self.hora_de_salida
+    def getHora_de_salida(self):
+        return self._hora_de_salida
 
-    def set_hora_de_salida(self, hora_de_salida):
-        self.hora_de_salida = hora_de_salida
+    def setHora_de_salida(self, hora_de_salida):
+        self._hora_de_salida = hora_de_salida
 
-    def is_esta_completo(self):
-        return self.esta_completo
+    def isEstaCompleto(self):
+        return self._estaCompleto
 
-    def set_esta_completo(self, esta_completo):
-        self.esta_completo = esta_completo
+    def setEstaCompleto(self, estaCompleto):
+        self._estaCompleto = estaCompleto
