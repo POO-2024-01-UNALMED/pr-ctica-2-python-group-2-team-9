@@ -23,24 +23,22 @@ class Alojamiento():
     #SI ES ASI, RETORNA ESE OBJETO ALOJAMIENTO, SI NO, DEVUELVE NULL.
     @classmethod
     def buscarAlojamientoPorUbicación(cls, ubicacion):
-        alojamientosEnUbicacion = []
-        for i in range(len(alojamientos)):
+      alojamientosEnUbicacion = []
+      for i in range(len(cls.alojamientos)):
+        if cls.alojamientos[i].getLocacion().lower() == ubicacion.lower():
+          alojamientosEnUbicacion.append(cls.alojamientos[i])
 
-            if alojamientos[i].getLocacion().lower() == ubicacion.lower():
-                alojamientosEnUbicacion.append(alojamientos.get(i))
-
-        return alojamientosEnUbicacion
+      return alojamientosEnUbicacion
 
     #METODO DE CLASE QUE RECIBE UNA NOMBRE(String) Y BUSCA ENTRE LAS ALOJAMIENTOS DISPONIBLES SI HAY ALGUNO CON ESTE NOMBRE, 
     #SI ES ASI, RETORNA ESE OBJETO ALOJAMIENTO, SI NO, DEVUELVE NULL.
     @classmethod
     def buscarAlojamientoPorNombre(cls, nombre):
-        for i in range(len(alojamientos)):
-
-            if alojamientos[i].getNombre().lower() == nombre.lower():
-                return alojamientos[i]
-        
-        return null
+        for i in range(len(cls.alojamientos)):
+          if cls.alojamientos[i].getNombre().lower() == nombre.lower():
+            return cls.alojamientos[i]
+         
+        return None
     
     #SETTER Y GETTER
     def setLocacion(self, locacion):
