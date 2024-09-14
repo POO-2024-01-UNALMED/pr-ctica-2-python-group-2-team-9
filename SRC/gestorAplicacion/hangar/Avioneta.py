@@ -1,50 +1,74 @@
 # AUTORES: RICARDO FUENTES, VALERY FERNANDEZ, JUAN LUIS SUCERQUIA, MARIANA SANCHEZ
-class Avioneta:
-    NUM_SILLAS_ECONOMICAS = 6
-    NUM_SILLAS_EJECUTIVAS = 4
+import math
+from gestorAplicacion.hangar.Aeronave import Aeronave
+from gestorAplicacion.hangar.Silla import Silla
+from gestorAplicacion.hangar.Clase import Clase
+from gestorAplicacion.hangar.Ubicacion import Ubicacion
+
+class Avioneta(Aeronave):
+    _NUM_SILLAS_ECONOMICAS = 6
+    _NUM_SILLAS_EJECUTIVAS = 4
 
     def __init__(self, nombre, aerolinea):
-        self.nombre = nombre
-        self.aerolinea = aerolinea
-        self.sillas_economicas = [None] * self.NUM_SILLAS_ECONOMICAS
-        self.sillas_ejecutivas = [None] * self.NUM_SILLAS_EJECUTIVAS
+        super().__init__(nombre, aerolinea)
 
-        for num_posicion in range(self.NUM_SILLAS_EJECUTIVAS):
-            if num_posicion % 4 == 0 or num_posicion % 4 == 3:
-                ubicacion = "VENTANA"
+        #LA VARIABLE UBICACION VA CAMBIANDO SU VALOR SEGUN LOS SIGUIENTES PROCESOS, SE
+		#USA PARA LA ASIGNACION DEL ATRIBUTO UBICACION DE LAS SILLAS.
+        ubicacion = None                
+        
+        #------------------------------------------------#
+        # EL SIGUIENTE PROCESO CREA Y AGREGA SILLAS A LA LISTA DE SILLAS EJECUTIVAS QUE
+        # POSEE LA CLASE AVIONETA("HEREDA LA LISTA DE AERONAVE")
+        # NOTA: LAS SILLAS DE TIPO EJECUTIVA SE REPARTEN EN GRUPOS DE 4 EN FILA
+        # SEPARADAS POR UN PASILLO.(POR TANTO NO HAY UBICACION CENTRAL)
+        for numPosicion in range(0, Avioneta._NUM_SILLAS_EJECUTIVAS):
+            if numPosicion % 4 == 0 or numPosicion % 4 == 3:
+                ubicacion = Ubicacion.VENTANA
             else:
-                ubicacion = "PASILLO"
+                ubicacion = Ubicacion.PASILLO
 
-            self.sillas_ejecutivas[num_posicion] = Silla("EJECUTIVA", num_posicion, ubicacion)
+            self.getSILLASEJECUTIVAS().append(Silla(Clase.EJECUTIVA, numPosicion, ubicacion))
 
-        for num_posicion in range(self.NUM_SILLAS_ECONOMICAS):
-            if num_posicion % 6 == 0 or num_posicion % 6 == 5:
-                ubicacion = "VENTANA"
-            elif num_posicion % 6 == 1 or num_posicion % 6 == 4:
-                ubicacion = "CENTRAL"
+        # EL SIGUIENTE PROCESO CREA Y AGREGA SILLAS A LA LISTA DE SILLAS ECONOMICAS QUE
+        # POSEE LA CLASE AVIONETA("HEREDA LA LISTA DE AERONAVE")
+        # NOTA: LAS SILLAS DE TIPO ECONOMICA SE REPARTEN EN GRUPOS DE 6 EN FILA
+        # SEPARADAS POR UN PASILLO.
+        for numPosicion in range(0, Avioneta._NUM_SILLAS_ECONOMICAS):
+            if numPosicion % 6 == 0 or numPosicion % 6 == 5:
+                ubicacion = Ubicacion.VENTANA
+            elif math.fmod(numPosicion, 6) == 1 or math.fmod(numPosicion, 6) == 4:
+                ubicacion = Ubicacion.CENTRAL
             else:
-                ubicacion = "PASILLO"
+                ubicacion = Ubicacion.PASILLO
 
-            self.sillas_economicas[num_posicion] = Silla("ECONOMICA", num_posicion, ubicacion)
+            self.getSILLASECONOMICAS().append(Silla(Clase.ECONOMICA, numPosicion, ubicacion))
 
     @staticmethod
-    def get_num_sillas_economicas():
-        return Avioneta.NUM_SILLAS_ECONOMICAS
+    def getNumSillasEconomicas(cls):
+        return Avioneta._NUM_SILLAS_ECONOMICAS
 
     @staticmethod
-    def get_num_sillas_ejecutivas():
-        return Avioneta.NUM_SILLAS_EJECUTIVAS
+    def getNumSillasEjecutivas(cls):
+        return Avioneta._NUM_SILLAS_EJECUTIVAS
 
-    def calcular_sillas_ocupadas(self):
+
+    # Este método recorreran los arreglos de sillas ejecutivos y economicas de cada
+    # avión y avioneta
+    # para verificar la cantidad de sillas que estan ocupadas y retornaran dicha
+    # cantidad
+    def Calcular_Sillas_Ocupadas(self):
         cont = 0
-        for silla in self.sillas_economicas:
-            if silla.is_estado():
+        for i in self.getSILLASECONOMICAS():
+            if i.isEstado():
                 cont += 1
-        for silla in self.sillas_ejecutivas:
-            if silla.is_estado():
+        for j in self.getSILLASEJECUTIVAS():
+            if j.isEstado():
                 cont += 1
-        return f"Sillas ocupadas en la avioneta: {cont}"
+        return cont
 
-    def calcular_consumo_gasolina(self, distancia_en_km):
-        consumido = self.get_gasto_gasolina() * distancia_en_km
+    # Este método recibe un tipo de dato double de la distancia que hay desde el
+    # lugar de origen al lugar de destino
+    # y retornara el costo total de gasolina por recorrer el trayecto
+    def Calcular_Consumo_Gasolina(self, distancia_en_km):
+        consumido = self.getGastoGasolina() * distancia_en_km
         return consumido
