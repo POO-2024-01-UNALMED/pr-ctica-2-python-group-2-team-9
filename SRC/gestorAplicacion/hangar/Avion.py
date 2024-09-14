@@ -56,10 +56,21 @@ class Avion(Aeronave):
         return Avion._NUM_SILLAS_EJECUTIVAS
 
     # METODOS
-
+    def Calcular_Sillas_Ocupadas(self):
+        cont = 0
+        for i in self.getSILLASECONOMICAS():
+            if i.isEstado():
+                cont += 1
+        for j in self.getSILLASEJECUTIVAS():
+            if j.isEstado():
+                cont += 1
+        return cont
+    
     # ESTE METODO RECIBE UN TIPO DE DATO DOUBLE DE LA DISTANCIA QUE HAY DESDE EL LUGAR DE ORIGEN AL LUGAR DE DESTINO
     # Y RETONARNA EL COSTO TOTAL DE GASOLINA PARA RECORRER EL TRAYECTO
     def Calcular_Consumo_Gasolina(self, distancia_en_km):
         consumido = None
         consumido = self.getGastoGasolina() * distancia_en_km
         return consumido
+    
+    

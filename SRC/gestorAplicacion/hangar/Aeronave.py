@@ -1,6 +1,7 @@
 # AUTORES: RICARDO FUENTES, VALERY FERNANDEZ, JUAN LUIS SUCERQUIA, MARIANA SANCHEZ
 
-class Aeronave:
+from abc import ABC, abstractmethod
+class Aeronave (ABC):
 
     # CONSTRUCTOR
     def __init__(self, nombre, aerolinea):
@@ -64,13 +65,14 @@ class Aeronave:
                 if i.isEstado() and i.getUbicacion() == ubicacion:
                     return i
         return None
-    # ESTE METODO RECORRE LOS ARREGLOS DE SILLAS EJECUTIVOS Y ECONOMICAS DE CADA AVION Y AVIONETA 
+    # ESTE METODO RECORRAN LOS ARREGLOS DE SILLAS EJECUTIVOS Y ECONOMICAS DE CADA AVION Y AVIONETA 
     # PARA VERIFICAR LA CANTIDAD DE SILLAS QUE ESTAN OCUPADAS Y RETORNAR DICHA CANTIDAD
-    
+    @abstractmethod
     def Calcular_Sillas_Ocupadas(self):
         pass
 
     # ESTE METODO RECIBE UN TIPO DE DATO DOUBLE DE LA DISTANCIA QUE HAY DESDE EL LUGAR DE ORIGEN AL LUGAR DE DESTINO
     # Y RETONARNA EL COSTO TOTAL DE GASOLINA PARA RECORRER EL TRAYECTO
+    @abstractmethod
     def Calcular_Consumo_Gasolina(self, distancia_en_km):
         pass
