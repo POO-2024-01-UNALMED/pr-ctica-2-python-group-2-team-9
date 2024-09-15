@@ -6,10 +6,10 @@ class Alojamiento():
     _alojamientos = []
 
     #CONSTRUCTORES
-    def __init__(self, nombre, locacion, precio_dia, estrellas):
+    def __init__(self, nombre, locacion, precioDia, estrellas):
         self._nombre = nombre
         self._locacion = locacion
-        self._precio_dia = precio_dia
+        self._precioDia = precioDia
         self._estrellas = estrellas
         Alojamiento._alojamientos.append(self)
 
@@ -47,9 +47,6 @@ class Alojamiento():
     def setLocacion(self, locacion):
         self._locacion = locacion
 
-    def setPrecio_dias(self, precio_dias):
-        self._precio_dia = precio_dias
-
     @staticmethod
     def getAlojamientos():
         return Alojamiento._alojamientos
@@ -58,11 +55,11 @@ class Alojamiento():
     def setAlojamientos(alojamientos):
         Alojamiento._alojamientos = alojamientos
 
-    def getPrecio_dia(self):
-        return self._precio_dia
+    def getPrecioDia(self):
+        return self._precioDia
 
-    def setPrecio_dia(self, precio_dia):
-        self._precio_dia = precio_dia
+    def setPrecioDia(self, precioDia):
+        self._precioDia = precioDia
 
     def getLocacion(self):
         return self._locacion
