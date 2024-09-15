@@ -20,12 +20,12 @@ from gestorAplicacion.hangar.Ubicacion import Ubicacion
 class Admin(object):
 
     # DESERIALIZACION DE DATOS
-    # picklefile = open('SRC/baseDatos/Aerolineas','rb')
-    # picklefile2 = open('SRC/baseDatos/Alojamientos','rb')
-    # Aerolinea.setAerolineas(pickle.load(picklefile))
-    # Alojamiento.setAlojamientos(pickle.load(picklefile2))
-    # picklefile.close()
-    # picklefile2.close()
+    picklefile = open('SRC/baseDatos/Aerolineas','rb')
+    picklefile2 = open('SRC/baseDatos/Alojamientos','rb')
+    Aerolinea.setAerolineas(pickle.load(picklefile))
+    Alojamiento.setAlojamientos(pickle.load(picklefile2))
+    picklefile.close()
+    picklefile2.close()
     
     #--------------------------------------------------------------------------------------------------------------------------------------
     # MUESTRA UNA TABLA POR CADA AEROLINEA CON LOS VUELOS QUE SE TIENEN DISPONIBLES
