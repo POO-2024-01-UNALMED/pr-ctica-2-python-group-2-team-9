@@ -1,3 +1,5 @@
+#Autores: Ricardo Fuentes, Valery Fernandez, Juan Luis Sucerquia, Mariana Sanchez
+
 from gestorAplicacion.hangar import *
 from gestorAplicacion.adminVuelos.Tiquete import Tiquete
 
@@ -56,7 +58,6 @@ class Vuelo():
     def setDestino(self, destino):
         self._destino = destino
 
-    #CORREGIR CUANDO SE TENGA LA CLASE ABSTRACTA
     def getAeronave(self):
         return self._aeronave
 

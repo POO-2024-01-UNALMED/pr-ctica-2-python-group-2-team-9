@@ -1,3 +1,5 @@
+#Autores: Ricardo Fuentes, Valery Fernandez, Juan Luis Sucerquia, Mariana Sanchez
+
 from enum import Enum
 
 class Clase(Enum):

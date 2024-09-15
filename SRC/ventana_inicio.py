@@ -1,4 +1,5 @@
-# AUTORES: RICARDO FUENTES, VALERY FERNANDEZ, JUAN LUIS SUCERQUIA, MARIANA SANCHEZ
+#Autores: Ricardo Fuentes, Valery Fernandez, Juan Luis Sucerquia, Mariana Sanchez
+
 from VentanaPrincipal import VentanaSecundaria
 from tkinter import *
 from Admin import Admin
@@ -36,7 +37,7 @@ class ventana_inicio(Tk):
         self.P3 = Frame(self.P1, width=400, height=150, bg="#5A9DFA")
         self.P3.grid(row=0, column=0)
 
-        self.saludo = Label(self.P3, text="Bienvenido al sistema de reservas de vuelo\n""Haz click en la imagen para empezar", font=("Segoe UI", 12), bg="#ECE7F4")
+        self.saludo = Label(self.P3, text="Bienvenido al aeropuerto El Sol\n""Haz click en la imagen para empezar", font=("Segoe UI", 12), bg="#ECE7F4")
         self.P4 = Frame(self.P1, width=400, height=350, bg="Red")
         self.P4.grid(row=1, column=0)
 

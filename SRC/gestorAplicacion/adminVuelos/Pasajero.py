@@ -1,3 +1,5 @@
+#Autores: Ricardo Fuentes, Valery Fernandez, Juan Luis Sucerquia, Mariana Sanchez
+
 class Pasajero:
 
     def __init__(self, pasaporte, nombre, tiquete, edad, email):
@@ -7,6 +9,7 @@ class Pasajero:
         self._edad = edad
         self._email = email
         tiquete.setPasajero(self)
+    
 
     #GETTERS Y SETTERS
     def getPasaporte(self):

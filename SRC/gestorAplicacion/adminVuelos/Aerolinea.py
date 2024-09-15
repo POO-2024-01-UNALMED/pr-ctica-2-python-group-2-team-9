@@ -1,3 +1,5 @@
+#Autores: Ricardo Fuentes, Valery Fernandez, Juan Luis Sucerquia, Mariana Sanchez
+
 from excepciones.ErrorAsignacion import ExcepcionIdTiquete
 from gestorAplicacion.hangar import *
 from gestorAplicacion.adminVuelos.Vuelo import Vuelo
