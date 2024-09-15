@@ -5,8 +5,8 @@ from excepciones.ErrorAplicacion import ErrorAplicacion
 class ErrorFormato(ErrorAplicacion):
 
     def __init__(self, mensaje):
-        self.mensaje_error_fromato = " Error por formato " + mensaje 
-        super().__init__(self.mensaje_error_fromato)
+        self.mensaje_error_formato = " Error por formato " + mensaje 
+        super().__init__(self.mensaje_error_formato)
 
 class ExcepcionStringNumero(ErrorFormato):
     def __init__(self,valor):

@@ -5,8 +5,8 @@ from excepciones.ErrorAplicacion import ErrorAplicacion
 class ErrorAsignacion(ErrorAplicacion):
     
     def __init__(self, mensaje):
-        self.mensaje_error_asigancion = f" Error de existencia: {mensaje}"
-        super().__init__(self.mensaje_error_asigancion)
+        self.mensaje_error_asignacion = f" Error de existencia: {mensaje}"
+        super().__init__(self.mensaje_error_asignacion)
 
 class ExcepcionAgregarAlojamiento(ErrorAsignacion):
 
