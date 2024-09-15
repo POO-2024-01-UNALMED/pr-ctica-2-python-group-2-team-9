@@ -18,7 +18,7 @@ from gestorAplicacion.hangar.Avioneta import Avioneta
 from gestorAplicacion.hangar.Ubicacion import Ubicacion
 
 class Admin(object):
-
+    
     # DESERIALIZACION DE DATOS
     picklefile = open('SRC/baseDatos/Aerolineas','rb')
     picklefile2 = open('SRC/baseDatos/Alojamientos','rb')
