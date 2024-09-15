@@ -130,16 +130,16 @@ class ventana_inicio(Tk):
     def cambioHDV(self,b):
         self.numClicksHDV += 1
         if (self.numClicksHDV == 1):
-            self.varHDV.set("\nNombre: Ricardo Fuentes Arevalo \n" "Edad: ? \n""Programa: Sistemas e Informatica\n")
+            self.varHDV.set("\nNombre: Ricardo Fuentes Arevalo \n" "Edad: 21 \n""Programa: Sistemas e Informatica\n")
             self.evento(12)
         elif (self.numClicksHDV == 2):
-            self.varHDV.set("\nNombre: Mariana Sanchez Acevedo \n" "Edad: ? \n" "Programa: Sistemas e Informatica\n")
+            self.varHDV.set("\nNombre: Mariana Sanchez Acevedo \n" "Edad: 23 \n" "Programa: Sistemas e Informatica\n")
             self.evento(12)
         elif (self.numClicksHDV == 3):
             self.varHDV.set("\nNombre: Valery Fernandez Alvarez \n" "Edad: 17 años \n" "Programa: Sistemas e Informatica\n")
             self.evento(12)
         elif (self.numClicksHDV == 4):
-            self.varHDV.set("\nNombre: Luis Sucerquia \n" "Edad: ? \n" "Programa: Sistemas e Informatica\n")
+            self.varHDV.set("\nNombre: Luis Sucerquia \n" "Edad: 21 \n" "Programa: Sistemas e Informatica\n")
             self.evento(12)
             self.numClicksHDV = 0
 
