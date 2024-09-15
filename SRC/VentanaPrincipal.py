@@ -26,11 +26,11 @@ class VentanaSecundaria(Toplevel):
         #ZONA DE Frames
         self.frame = Frame(self,relief="groove",bd=2)
         self.frame.pack(ipadx=50, padx=15,ipady=20,pady=15,expand=True,fill=BOTH)
-        self.frame_proceso = Frame(self.frame,bg="gray80")
+        self.frame_proceso = Frame(self.frame,bg="#5A9DFA")
         self.frame_proceso.pack(ipadx=6, padx=2,ipady=2,pady=2,fill=X)
         self.frame_proceso.config(relief = "ridge")
         self.frame_proceso.config(bd=2)
-        self.frame_descripcion = Frame(self.frame ,relief="ridge",bg="gray90")
+        self.frame_descripcion = Frame(self.frame ,relief="ridge",bg="#DB0083")
         self.frame_descripcion.pack(ipadx=2, padx=2,ipady=2,pady=2,fill=X)
         self.frame_descripcion.config(bd=2)
         self.ventana_operaciones = Frame(self.frame,relief="groove",bd=2)
@@ -70,10 +70,10 @@ class VentanaSecundaria(Toplevel):
 
 
         #ZONA DE LABELS
-        self.label_proceso = Label(self.frame_proceso,text= "Administrador Sistema de Reserva de Vuelos", font = ("Segoe UI", 12,"bold"),height=2, bg="gray80")
+        self.label_proceso = Label(self.frame_proceso,text= "Aeropuerto El Sol", font = ("Segoe UI", 12,"bold"),height=2, bg="#5A9DFA")
         self.label_proceso.pack(ipadx = 2, ipady =2, padx = 5, pady= 5)
 
-        self.label_descripcion = Label(self.frame_descripcion, text = "Realiza reservaciones de vuelos y alojamientos, y mantén la informacion actualizada de vuelos, aviones y alojamientos", font = ("Segoe UI", 10), bg="gray90")
+        self.label_descripcion = Label(self.frame_descripcion, text = "Realiza reservaciones de vuelos y alojamientos, y mantén la informacion actualizada de vuelos, aviones y alojamientos", font = ("Segoe UI", 10), bg="#DB0083")
         self.label_descripcion.pack(ipadx = 2, ipady = 2, padx = 5, pady= 5)
 
         self.labelTexto = Label(self.ventana_operaciones, text = "Puedes hacerlo con las acciones dispuestas en el menu <Procesos y consultas>", font = ("Segoe UI", 10))
@@ -90,7 +90,7 @@ class VentanaSecundaria(Toplevel):
     #--------------------------------------------------------------------------------------------------------------
     #Se despliega un Message Box con la informacion basica de lo que hace la aplicacion.
     def descripcionApp(self):
-        descripcion = messagebox.showinfo(title = "Informacion", message = "SISTEMA DE RESERVA DE VUELOS",
+        descripcion = messagebox.showinfo(title = "Informacion", message = "AEROPUERTO EL SOL",
         detail = "La aplicacion permite hacer reservaciones de un vuelo y un alojamiento en el lugar de destino, ademas de algunas opciones de administrador.")
 
     #--------------------------------------------------------------------------------------------------------------
