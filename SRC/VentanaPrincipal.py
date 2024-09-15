@@ -441,7 +441,7 @@ class VentanaSecundaria(Toplevel):
             while j < len(lista_alojamientos):
                 label_repetido =Label(self.ventana_operaciones)
                 label_repetido.pack()
-                label_repetido["text"]+="{0:>13} {1:>11} {2:>16} {3:>11}".format(lista_alojamientos[j].getNombre(), lista_alojamientos[j].getLocacion(), lista_alojamientos[j].getPrecio_dia(), lista_alojamientos[j].getEstrellas())
+                label_repetido["text"]+="{0:>13} {1:>11} {2:>16} {3:>11}".format(lista_alojamientos[j].getNombre(), lista_alojamientos[j].getLocacion(), lista_alojamientos[j].getPrecioDia(), lista_alojamientos[j].getEstrellas())
                 label_repetido.bind("<ButtonPress-1>",lambda event,a=lista_alojamientos[j].getNombre():alojamientoSeleccionado(a))
                 j += 1
 
@@ -577,7 +577,7 @@ class VentanaSecundaria(Toplevel):
             while j < len(lista_alojamientos):
                 label_repetido =Label(self.ventana_operaciones)
                 label_repetido.pack()
-                label_repetido["text"]+="{0:>13} {1:>11} {2:>16} {3:>11}".format(lista_alojamientos[j].getNombre(), lista_alojamientos[j].getLocacion(), lista_alojamientos[j].getPrecio_dia(), lista_alojamientos[j].getEstrellas())
+                label_repetido["text"]+="{0:>13} {1:>11} {2:>16} {3:>11}".format(lista_alojamientos[j].getNombre(), lista_alojamientos[j].getLocacion(), lista_alojamientos[j].getPrecioDia(), lista_alojamientos[j].getEstrellas())
                 label_repetido.bind("<ButtonPress-1>",lambda event,a=lista_alojamientos[j].getNombre():alojamientoSeleccionado(a))
                 j += 1
 

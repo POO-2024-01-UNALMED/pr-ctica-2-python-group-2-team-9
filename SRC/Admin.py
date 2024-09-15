@@ -391,7 +391,7 @@ class Admin(object):
 
         j = 0
         while j < len(alojamientos):
-            label["text"]+="\n"+"{0:>13} {1:>11} {2:>16} {3:>11}".format(alojamientos[j].getNombre(), alojamientos[j].getLocacion(), alojamientos[j].getPrecio_dia(), alojamientos[j].getEstrellas())
+            label["text"]+="\n"+"{0:>13} {1:>11} {2:>16} {3:>11}".format(alojamientos[j].getNombre(), alojamientos[j].getLocacion(), alojamientos[j].getPrecioDia(), alojamientos[j].getEstrellas())
             label["text"]+="\n"
             j += 1
 
