@@ -5,30 +5,30 @@ class Alojamiento():
     #ATRIBUTOS
     _alojamientos = []
 
-
-    def __init__(self, nombre, locacion, precioDia, estrellas):
+    #CONSTRUCTORES
+    def __init__(self, nombre, locacion, precio_dia, estrellas):
         self._nombre = nombre
         self._locacion = locacion
-        self._precioDia = precioDia
+        self._precio_dia = precio_dia
         self._estrellas = estrellas
-        self.alojamientos.append(self)
+        Alojamiento._alojamientos.append(self)
 
     #EL METODO RECIBE UN PARAMETRO DIAS (int) Y RETORNA EL PRECIO RESULTANTE AL MULTIPLICAR EL PRECIO POR DIA DEL ALOJAMIENTO
     #CON EL PARAMETRO DIAS QUE SE LE PASO.
     def calcularPrecio(self, dias):
-        return int(dias * (self._precioDia))
+        return int((dias * self._precioDia))
 
 #BUSCAR ALOJAMIENTOS POR ...
 
     #METODO DE CLASE QUE RECIBE UNA UBICACION(String) Y BUSCA ENTRE LOS ALOJAMIENTOS DISPONIBLES SI HAY ALGUNO EN ESTA LOCACION, 
     #SI ES ASI, RETORNA ESE OBJETO ALOJAMIENTO, SI NO, DEVUELVE NULL.
-    @staticmethod
-    def buscarAlojamientoPorUbicación(ubicacion):
-      alojamientosEnUbicacion = []
-      i = 0
-      while i < len(Alojamiento._alojamientos):
-        if Alojamiento._alojamientos[i].getLocacion().casefold() == ubicacion.casefold():
-            alojamientosEnUbicacion.append(Alojamiento._alojamientos[i])
+    @classmethod
+    def buscarAlojamientoPorUbicacion(cls, ubicacion):
+        alojamientosEnUbicacion = []
+        i = 0
+        while i < len(Alojamiento._alojamientos):
+            if Alojamiento._alojamientos[i].getLocacion().casefold() == ubicacion.casefold():
+                alojamientosEnUbicacion.append(Alojamiento._alojamientos[i])
             i += 1
         return alojamientosEnUbicacion
 

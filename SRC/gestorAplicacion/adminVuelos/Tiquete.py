@@ -27,6 +27,7 @@ class Tiquete:
 
     # Este metodo no tiene parametros de entra o de salida porque el valor resultante
     # es guardado en el atributo precio de cada instancia
+    # Sobrecarga de metodos con *args
     def asignarPrecio(self,*args):
         hayDescuento = False
         precio_total =self._vuelo.getPrecio() + self.getSilla().getClase().value
