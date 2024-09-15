@@ -30,7 +30,7 @@ class VentanaSecundaria(Toplevel):
         self.frame_proceso.pack(ipadx=6, padx=2,ipady=2,pady=2,fill=X)
         self.frame_proceso.config(relief = "ridge")
         self.frame_proceso.config(bd=2)
-        self.frame_descripcion = Frame(self.frame ,relief="ridge",bg="#DB0083")
+        self.frame_descripcion = Frame(self.frame ,relief="ridge",bg="#E368A6")
         self.frame_descripcion.pack(ipadx=2, padx=2,ipady=2,pady=2,fill=X)
         self.frame_descripcion.config(bd=2)
         self.ventana_operaciones = Frame(self.frame,relief="groove",bd=2)
@@ -73,7 +73,7 @@ class VentanaSecundaria(Toplevel):
         self.label_proceso = Label(self.frame_proceso,text= "Aeropuerto El Sol", font = ("Segoe UI", 12,"bold"),height=2, bg="#5A9DFA")
         self.label_proceso.pack(ipadx = 2, ipady =2, padx = 5, pady= 5)
 
-        self.label_descripcion = Label(self.frame_descripcion, text = "Realiza reservaciones de vuelos y alojamientos, y mantén la informacion actualizada de vuelos, aviones y alojamientos", font = ("Segoe UI", 10), bg="#DB0083")
+        self.label_descripcion = Label(self.frame_descripcion, text = "Realiza reservaciones de vuelos y alojamientos, y mantén la informacion actualizada de vuelos, aviones y alojamientos", font = ("Segoe UI", 10), bg="#E368A6")
         self.label_descripcion.pack(ipadx = 2, ipady = 2, padx = 5, pady= 5)
 
         self.labelTexto = Label(self.ventana_operaciones, text = "Puedes hacerlo con las acciones dispuestas en el menu <Procesos y consultas>", font = ("Segoe UI", 10))
